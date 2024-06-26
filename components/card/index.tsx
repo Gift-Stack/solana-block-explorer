@@ -1,3 +1,4 @@
+import { cn } from "@/utils/primitives";
 import React from "react";
 
 type CardProps = {
@@ -9,7 +10,10 @@ type CardProps = {
 const Card = ({ className, children, onClick }: CardProps) => {
   return (
     <div
-      className={`flex flex-col gap-2 bg-white/2 shadow-md rounded-3xl py-5 ${className}`}
+      className={cn(
+        "flex flex-col gap-2 bg-white/2 shadow-md rounded-3xl py-5",
+        className
+      )}
       onClick={onClick}
     >
       {children}

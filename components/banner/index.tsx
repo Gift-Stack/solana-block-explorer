@@ -2,6 +2,7 @@ import Link from "next/link";
 import SolanaIcon from "@/icons/solana";
 import ArrowLeftIcon from "@/icons/arrow-left";
 import { Button } from "../button";
+import { cn } from "@/utils/primitives";
 
 type BannerProps = {
   title: string;
@@ -12,9 +13,10 @@ type BannerProps = {
 const Banner = ({ title, description, href }: BannerProps) => {
   return (
     <div
-      className={`grid ${
+      className={cn(
+        "grid gap-6 items-center",
         href ? "grid-cols-[auto_1fr]" : "grid-cols-1"
-      } gap-6 items-center`}
+      )}
     >
       {href && (
         <Link aria-label="Go back" href={href} className="h-full rounded-3xl">
