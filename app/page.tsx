@@ -3,6 +3,7 @@ import Banner from "@/components/banner";
 import Input from "@/components/input";
 import SearchIcon from "@/icons/search";
 import BlocksTable from "./_home/components/blocks-table";
+import BlocksTableSkeleton from "./_home/components/blocks-table-skeleton";
 
 export default function Home() {
   return (
@@ -18,7 +19,7 @@ export default function Home() {
         prepend={<SearchIcon size="sm" />}
       />
 
-      <Suspense fallback="Loading...">
+      <Suspense fallback={<BlocksTableSkeleton />}>
         <BlocksTable />
       </Suspense>
     </main>

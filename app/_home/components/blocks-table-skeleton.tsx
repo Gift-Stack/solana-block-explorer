@@ -1,12 +1,7 @@
 import React from "react";
-import BlocksTableRow from "./blocks-table-row";
-import { Block } from "@/models/block";
 import { tableHeaderItems } from "./blocks-table-model";
 
-const BlocksTable = async () => {
-  const req = await fetch(process.env.URL + "/api/blocks");
-  const data: Block[] = await req.json();
-
+const BlocksTableSkeleton = () => {
   return (
     <div className="overflow-x-auto">
       <table className="min-w-full text-white/60 whitespace-nowrap border-separate border-spacing-y-1">
@@ -19,14 +14,19 @@ const BlocksTable = async () => {
             ))}
           </tr>
         </thead>
-        <tbody>
-          {data.map((block) => (
-            <BlocksTableRow block={block} key={block.blockHash} />
-          ))}
-        </tbody>
       </table>
+      <div className="flex flex-col gap-1 animate-pulse">
+        {Array(12)
+          .fill(null)
+          .map((_, index) => (
+            <div
+              key={index}
+              className="h-[56px] w-full block-table-row-data rounded-2xl"
+            />
+          ))}
+      </div>
     </div>
   );
 };
 
-export default BlocksTable;
+export default BlocksTableSkeleton;

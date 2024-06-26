@@ -14,7 +14,7 @@ const BlocksTableRow = ({ block }: BlockTableRowProps) => {
   const { push } = useRouter();
   return (
     <tr
-      onClick={() => push(`/trx/${"41XJ3VaB8DF2DFF55D38FaJY"}`)}
+      onClick={() => push(`/trx/${blockHash}`)}
       className="cursor-pointer hover:text-white rounded-2xl group font-medium"
     >
       <td className="block-table-row-data text-primary hover:underline rounded-tl-2xl rounded-bl-2xl">
