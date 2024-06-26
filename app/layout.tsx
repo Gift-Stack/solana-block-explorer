@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { gilroy } from "../utils/fonts";
 import "./globals.css";
 import { ToastContainer } from "react-toastify";
+import Providers from "@/providers";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,9 +17,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={gilroy.className}>
-        <div className="w-full h-full max-w-inner mx-auto p-5 pt-[72px]">
-          {children}
-        </div>
+        <Providers>
+          <div className="w-full h-full max-w-inner mx-auto p-5 pt-[72px]">
+            {children}
+          </div>
+        </Providers>
         <ToastContainer />
       </body>
     </html>

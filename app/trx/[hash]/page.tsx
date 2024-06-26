@@ -11,7 +11,7 @@ type TransactionProps = {
   params: { hash: string };
 };
 
-const Transaction = async ({ params }: TransactionProps) => {
+export default async function Transaction({ params }: TransactionProps) {
   const request = await fetch(process.env.URL + `/api/blocks/${params.hash}`);
   const data: Block = await request.json();
 
@@ -74,6 +74,4 @@ const Transaction = async ({ params }: TransactionProps) => {
       </div>
     </main>
   );
-};
-
-export default Transaction;
+}
