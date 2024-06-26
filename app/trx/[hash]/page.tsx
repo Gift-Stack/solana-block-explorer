@@ -4,23 +4,32 @@ import Banner from "@/components/banner";
 import SolanaIcon from "@/icons/solana";
 import BlockDetail from "./_components/block-detail";
 import LeaderDetail from "./_components/leader-detail";
+import { Block } from "@/models/block";
+import BlockError from "./_components/block-error";
 
 type TransactionProps = {
   params: { hash: string };
 };
 
-const Transaction = ({ params }: TransactionProps) => {
+const Transaction = async ({ params }: TransactionProps) => {
+  const request = await fetch(process.env.URL + `/api/blocks/${params.hash}`);
+  const data: Block = await request.json();
+
+  if (request.status !== 200) {
+    return <BlockError status={request.status} message={request.statusText} />;
+  }
+
   return (
     <main className="flex flex-col gap-10">
       <Banner
-        title="Block #249362853"
+        title={`Block #${data.slot}`}
         description="Check the block details."
         href="/"
       />
 
       <div className="flex flex-col gap-3 text-center">
         <div className="grid md:grid-cols-4 gap-3">
-          <BlockDetail />
+          <BlockDetail block={data.slot} />
 
           <TransactionDetail title="Timestamp">
             1h 43m 12s ago
@@ -30,7 +39,9 @@ const Transaction = ({ params }: TransactionProps) => {
             Feb 20, 2024 14:38:22
           </TransactionDetail>
 
-          <TransactionDetail title="Transactions">1503</TransactionDetail>
+          <TransactionDetail title="Transactions">
+            {data.txCount}
+          </TransactionDetail>
         </div>
 
         <TransactionDetail title="Block Hash">
@@ -40,7 +51,7 @@ const Transaction = ({ params }: TransactionProps) => {
         </TransactionDetail>
 
         <div className="grid md:grid-cols-2 gap-3">
-          <LeaderDetail />
+          <LeaderDetail leader={data.leader} />
 
           <TransactionDetail title="Reward">
             <div className="flex items-center justify-center gap-2">
@@ -48,17 +59,17 @@ const Transaction = ({ params }: TransactionProps) => {
                 <SolanaIcon size="sm" />
               </div>
               <p>
-                12,531 SOL
-                <span className="text-white/60 pl-2">($32,432 @ $107.60)</span>
+                {data.rewardSol.toFixed(2)} SOL
+                <span className="text-white/60 pl-2">
+                  (${data.rewardUsd.toFixed(2)} @ ${data.solanaPriceUsd})
+                </span>
               </p>
             </div>
           </TransactionDetail>
         </div>
 
         <TransactionDetail title="Previous Block Hash">
-          <p className="break-all">
-            {"EETT6PnWdwcJe8EifNqSzez5Jj9x3P2F992w2Zqs84fG"}
-          </p>
+          <p className="break-all">{data.prevBlockHash}</p>
         </TransactionDetail>
       </div>
     </main>
