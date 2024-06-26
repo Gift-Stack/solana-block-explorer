@@ -1,9 +1,9 @@
 import React from "react";
 import TransactionDetail from "./_components/detail";
 import Banner from "@/components/banner";
-import { Button } from "@/components/button";
-import CopyIcon from "@/icons/copy";
 import SolanaIcon from "@/icons/solana";
+import BlockDetail from "./_components/block-detail";
+import LeaderDetail from "./_components/leader-detail";
 
 type TransactionProps = {
   params: { hash: string };
@@ -20,14 +20,7 @@ const Transaction = ({ params }: TransactionProps) => {
 
       <div className="flex flex-col gap-3 text-center">
         <div className="grid md:grid-cols-4 gap-3">
-          <TransactionDetail title="Block">
-            <div className="flex items-center justify-center gap-2">
-              <p>{"#249362853"}</p>
-              <Button variant="icon">
-                <CopyIcon size="sm" />
-              </Button>
-            </div>
-          </TransactionDetail>
+          <BlockDetail />
 
           <TransactionDetail title="Timestamp">
             1h 43m 12s ago
@@ -47,14 +40,7 @@ const Transaction = ({ params }: TransactionProps) => {
         </TransactionDetail>
 
         <div className="grid md:grid-cols-2 gap-3">
-          <TransactionDetail title="Leader">
-            <div className="flex items-center justify-center gap-2">
-              <p className="text-primary">{"EoJLNY...JhNk"}</p>
-              <Button variant="icon">
-                <CopyIcon size="sm" />
-              </Button>
-            </div>
-          </TransactionDetail>
+          <LeaderDetail />
 
           <TransactionDetail title="Reward">
             <div className="flex items-center justify-center gap-2">

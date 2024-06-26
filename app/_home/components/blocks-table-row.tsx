@@ -36,8 +36,7 @@ const BlocksTableRow = ({ block }: BlockTableRowProps) => {
           <SolanaIcon size="sm" />
         </div>
         <p>
-          {rewardSol.toFixed(2)} SOL (
-          {rewardUsd ? "$" + (rewardUsd * block.rewardSol).toFixed(2) : "?"})
+          {rewardSol.toFixed(2)} SOL ({"$" + rewardUsd.toFixed(2)})
         </p>
       </td>
     </tr>
