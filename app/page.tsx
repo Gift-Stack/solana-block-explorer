@@ -1,7 +1,7 @@
 import Banner from "@/components/banner";
 import Input from "@/components/input";
 import SearchIcon from "@/icons/search";
-import BlocksTable from "./_home/blocks-table";
+import BlocksTable from "./_home/components/blocks-table";
 
 export default function Home() {
   return (

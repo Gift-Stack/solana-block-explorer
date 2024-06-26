@@ -1,13 +1,28 @@
+import Link from "next/link";
 import SolanaIcon from "@/icons/solana";
+import ArrowLeftIcon from "@/icons/arrow-left";
+import { Button } from "../button";
 
-export interface BannerProps {
+type BannerProps = {
   title: string;
   description: string;
-}
+  href?: string;
+};
 
-const Banner = ({ title, description }: BannerProps) => {
+const Banner = ({ title, description, href }: BannerProps) => {
   return (
-    <div className="grid grid-cols-1 gap-6 items-center">
+    <div
+      className={`grid ${
+        href ? "grid-cols-[auto_1fr]" : "grid-cols-1"
+      } gap-6 items-center`}
+    >
+      {href && (
+        <Link aria-label="Go back" href={href} className="h-full rounded-3xl">
+          <Button aria-hidden="true" className="!h-full w-[72px] rounded-3xl">
+            <ArrowLeftIcon size="sm" />
+          </Button>
+        </Link>
+      )}
       <div className="flex w-full p-6 gap-6 border border-white/10 rounded-3xl">
         <div className="bg-black min-w-14 w-14 min-h-14 h-14 rounded-full flex items-center justify-center">
           <SolanaIcon size="lg" />

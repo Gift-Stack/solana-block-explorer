@@ -8,3 +8,7 @@ export const applyEllipse = (
 
   return text.replace(text.slice(first, text.length - last), ellipsis);
 };
+
+export const cn = (...args: (string | undefined)[]) => {
+  return args.filter(Boolean).join(" ");
+};

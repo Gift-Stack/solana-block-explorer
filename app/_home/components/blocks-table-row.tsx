@@ -1,10 +1,16 @@
+"use client";
 import React from "react";
 import { applyEllipse } from "@/utils/primitives";
 import SolanaIcon from "@/icons/solana";
+import { useRouter } from "next/navigation";
 
 const BlocksTableRow = () => {
+  const { push } = useRouter();
   return (
-    <tr className="cursor-pointer hover:text-white rounded-2xl group font-medium">
+    <tr
+      onClick={() => push(`/trx/${"41XJ3VaB8DF2DFF55D38FaJY"}`)}
+      className="cursor-pointer hover:text-white rounded-2xl group font-medium"
+    >
       <td className="block-table-row-data text-primary hover:underline rounded-tl-2xl rounded-bl-2xl">
         {applyEllipse("41XJ3VaB8DF2DFF55D38FaJY")}
       </td>
