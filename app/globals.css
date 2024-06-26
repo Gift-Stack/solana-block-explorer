@@ -22,6 +22,6 @@ body {
 
 @layer components {
   .block-table-row-data {
-    @apply py-4.5 px-6 group-hover:bg-white/5 bg-white/2;
+    @apply py-4.5 px-4 group-hover:bg-white/5 bg-white/2;
   }
 }

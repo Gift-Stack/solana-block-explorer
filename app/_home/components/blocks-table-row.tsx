@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { applyEllipse } from "@/utils/primitives";
+import { applyEllipse, dateToRelativeTime } from "@/utils/primitives";
 import SolanaIcon from "@/icons/solana";
 import { useRouter } from "next/navigation";
 import { Block } from "@/models/block";
@@ -10,8 +10,11 @@ type BlockTableRowProps = {
 };
 
 const BlocksTableRow = ({ block }: BlockTableRowProps) => {
-  const { blockHash, slot, txCount, leader, rewardSol } = block;
+  const { blockHash, slot, txCount, leader, rewardSol, rewardUsd } = block;
   const { push } = useRouter();
+
+  const relativeTime = dateToRelativeTime(new Date(block.timestamp));
+
   return (
     <tr
       onClick={() => push(`/trx/${blockHash}`)}
@@ -23,7 +26,7 @@ const BlocksTableRow = ({ block }: BlockTableRowProps) => {
       <td className="block-table-row-data text-primary hover:underline">
         #{slot}
       </td>
-      <td className="block-table-row-data">2 minutes ago</td>
+      <td className="block-table-row-data">{relativeTime}</td>
       <td className="block-table-row-data">{txCount}</td>
       <td className="block-table-row-data text-primary hover:underline">
         {applyEllipse(leader)}
@@ -32,7 +35,10 @@ const BlocksTableRow = ({ block }: BlockTableRowProps) => {
         <div className="bg-black w-4 h-4 p-1 rounded-full flex items-center justify-center">
           <SolanaIcon size="sm" />
         </div>
-        <p>{rewardSol.toFixed(2)} SOL</p>
+        <p>
+          {rewardSol.toFixed(2)} SOL (
+          {rewardUsd ? "$" + (rewardUsd * block.rewardSol).toFixed(2) : "?"})
+        </p>
       </td>
     </tr>
   );

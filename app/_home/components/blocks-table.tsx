@@ -13,7 +13,7 @@ const BlocksTable = async () => {
         <thead className="text-xs text-left">
           <tr>
             {tableHeaderItems.map((item, index) => (
-              <th key={index} className="px-6 py-2 font-medium">
+              <th key={index} className="px-4 py-2 font-medium">
                 {item}
               </th>
             ))}
