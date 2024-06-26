@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Banner from "@/components/banner";
 import Input from "@/components/input";
 import SearchIcon from "@/icons/search";
@@ -17,7 +18,9 @@ export default function Home() {
         prepend={<SearchIcon size="sm" />}
       />
 
-      <BlocksTable />
+      <Suspense fallback="Loading...">
+        <BlocksTable />
+      </Suspense>
     </main>
   );
 }

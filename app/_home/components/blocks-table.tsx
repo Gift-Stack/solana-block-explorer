@@ -1,5 +1,6 @@
 import React from "react";
 import BlocksTableRow from "./blocks-table-row";
+import { Block } from "@/models/block";
 
 const headerItems = [
   "Block Hash",
@@ -10,7 +11,10 @@ const headerItems = [
   "Reward",
 ];
 
-const BlocksTable = () => {
+const BlocksTable = async () => {
+  const req = await fetch(process.env.URL + "/api/blocks");
+  const data: Block[] = await req.json();
+
   return (
     <div className="overflow-x-auto">
       <table className="min-w-full text-white/60 whitespace-nowrap border-separate border-spacing-y-1">
@@ -24,11 +28,9 @@ const BlocksTable = () => {
           </tr>
         </thead>
         <tbody>
-          {Array(14)
-            .fill(null)
-            .map((_: any, index: number) => (
-              <BlocksTableRow key={index} />
-            ))}
+          {data.map((block) => (
+            <BlocksTableRow block={block} key={block.blockHash} />
+          ))}
         </tbody>
       </table>
     </div>
