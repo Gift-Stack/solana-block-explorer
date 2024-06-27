@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 📜 Documentation for the task
 
-## Getting Started
+## 📋 Index
 
-First, run the development server:
+- [📜 Documentation for the task](#-documentation-for-the-task)
+  - [📋 Index](#-index)
+  - [📖 Expectations](#-expectations)
+  - [📦 Dependencies](#-dependencies)
+  - [⚙️ Goals](#️-goals)
+  - [🔑 Usage](#-usage)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📖 Expectations
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Achieve pixel perfect design
+- Fetch `blocks` data from api
+- Acheive a smooth user experience
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+---
 
-## Learn More
+## 📦 Dependencies
 
-To learn more about Next.js, take a look at the following resources:
+I didn't use any external libraries for this task, but I did use the following:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Utilized React Server Components to fetch data from the api
+  - used Next.js's built-in server-side rendering to ensure that the app is always accessible to users
+- Utilized React Suspense to render a loading state while data is being fetched
+- Properly implemented code splitting to ensure that only the relevant code is loaded
+- Took advantage of the Next.js cache to ensure that data is always available to the user (no data leakage -- Although, not a necessity for this task)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## ⚙️ Goals
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Maintain snappy app interactions**: (Users should not wait for > 100 ms)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Code splitting
+- Suspense fallbacks on only affected components while other non-async components are mounted
+- Debounced search input (to avoid multiple redundant filters)
+
+2. **Keep data consistent and trustworthy across the whole app**: Hence utilizing just fetch and next cache. (Data are always up to date)
+
+3. **Data Security**: No data leakage, no data manipulation, no data loss
+
+- No redundant local storage persistence
+
+4. **App can be scaled to 5-10 engineers contributing simultaneously**.
+
+---
+
+## 🔑 Usage
+
+https://www.loom.com/share/c19dbb85e1b84799aa0baaa8cb13c2c0?sid=7b6b527b-f84e-4d41-9da5-6d14f9d7143c
