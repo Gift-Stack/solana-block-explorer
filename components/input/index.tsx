@@ -15,7 +15,7 @@ const Input = ({ prepend, className, onClearInput, ...props }: InputProps) => {
   const closeButtonRef = React.useRef<HTMLButtonElement>(null);
 
   let classNames = cn(
-    "w-full rounded-2xl bg-white/2 hover:bg-white/5 group flex gap-3 items-center h-14 outline-none bg-transparent py-3 w-full group-hover:placeholder-white focus:bg-primary/10 focus:outline-none focus:ring-1 focus:ring-primary",
+    "w-full rounded-2xl bg-white/2 hover:bg-white/5 group flex gap-3 items-center h-14 outline-none bg-transparent py-3 w-full group-hover:placeholder-white focus:bg-primary/8 focus:outline-none focus:ring-1 focus:ring-primary",
     className,
     prepend ? "pl-10" : "px-4"
   );

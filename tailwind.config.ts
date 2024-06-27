@@ -18,6 +18,7 @@ const config: Config = {
       },
       colors: {
         primary: "rgba(82, 242, 185, 1)",
+        "primary/8": "rgba(82, 242, 185, 0.08)",
         "white/2": "rgba(255, 255, 255, 0.02)",
       },
       padding: {
