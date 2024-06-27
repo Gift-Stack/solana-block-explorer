@@ -40,6 +40,36 @@ export const dateToRelativeTime = (date: Date) => {
   return "just now";
 };
 
+const months = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+
+export const formatTimestamp = (timestamp: string | Date) => {
+  if (new Date(timestamp).toString() === "Invalid Date") return "Invalid Date";
+
+  const date = new Date(timestamp);
+
+  const year = date.getUTCFullYear();
+  const month = months[date.getUTCMonth()];
+  const day = date.getUTCDate().toString().padStart(2, "0");
+  const hour = date.getUTCHours().toString().padStart(2, "0");
+  const minute = date.getUTCMinutes().toString().padStart(2, "0");
+  const second = date.getUTCSeconds().toString().padStart(2, "0");
+
+  return `${month} ${day}, ${year} ${hour}:${minute}:${second}`;
+};
+
 export const debounce = <T extends (...args: any[]) => any>(
   callback: T,
   waitFor: number

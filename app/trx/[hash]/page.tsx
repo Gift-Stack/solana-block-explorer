@@ -6,6 +6,7 @@ import BlockDetail from "./_components/block-detail";
 import LeaderDetail from "./_components/leader-detail";
 import { Block } from "@/models/block";
 import BlockError from "./_components/block-error";
+import { dateToRelativeTime, formatTimestamp } from "@/utils/primitives";
 
 type TransactionProps = {
   params: { hash: string };
@@ -32,11 +33,12 @@ export default async function Transaction({ params }: TransactionProps) {
           <BlockDetail block={data.slot} />
 
           <TransactionDetail title="Timestamp">
-            1h 43m 12s ago
+            {dateToRelativeTime(new Date(data.timestamp))}
           </TransactionDetail>
 
           <TransactionDetail title="Date (UTC)">
-            Feb 20, 2024 14:38:22
+            {formatTimestamp(data.timestamp)}
+            {/* Feb 20, 2024 14:38:22 */}
           </TransactionDetail>
 
           <TransactionDetail title="Transactions">
@@ -45,9 +47,7 @@ export default async function Transaction({ params }: TransactionProps) {
         </div>
 
         <TransactionDetail title="Block Hash">
-          <p className="break-all">
-            {"HxpWEoY56AFtxcZt5Ywp2SmSnnhcwXX7W5R8LPgsiDqm"}
-          </p>
+          <p className="break-all">{data.blockHash}</p>
         </TransactionDetail>
 
         <div className="grid md:grid-cols-2 gap-3">

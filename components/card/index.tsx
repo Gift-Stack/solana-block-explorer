@@ -11,7 +11,7 @@ const Card = ({ className, children, onClick }: CardProps) => {
   return (
     <div
       className={cn(
-        "flex flex-col gap-2 bg-white/2 shadow-md rounded-3xl py-5",
+        "flex flex-col gap-2 bg-white/2 shadow-md rounded-3xl p-5",
         className
       )}
       onClick={onClick}
