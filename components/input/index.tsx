@@ -47,7 +47,7 @@ const Input = ({ prepend, className, onClearInput, ...props }: InputProps) => {
         variant="icon"
         className={cn(
           "absolute right-4 top-[50%] translate-y-[-50%]",
-          inputFocused ? "visible" : "opacity-0 cursor-default"
+          inputFocused && props.value ? "visible" : "opacity-0 cursor-default"
         )}
         ref={closeButtonRef}
         onClick={clearInput}
