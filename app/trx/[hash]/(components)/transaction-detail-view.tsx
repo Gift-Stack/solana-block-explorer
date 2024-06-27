@@ -5,16 +5,11 @@ import SolanaIcon from "@/icons/solana";
 import BlockDetail from "./block-detail";
 import LeaderDetail from "./leader-detail";
 import { Block } from "@/models/block";
-import BlockError from "@/components/error";
 import { dateToRelativeTime, formatTimestamp } from "@/utils/primitives";
+import { api } from "@/utils/api";
 
 const TransactionDetailView = async ({ hash }: { hash: string }) => {
-  const request = await fetch(process.env.URL + `/api/blocks/${hash}`);
-  const data: Block = await request.json();
-
-  if (request.status !== 200) {
-    return <BlockError status={request.status} message={request.statusText} />;
-  }
+  const data = await api<Block>(process.env.URL + `/api/blocks/${hash}`);
 
   return (
     <main className="grid grid-rows-[auto_1fr] gap-10">

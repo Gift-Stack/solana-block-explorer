@@ -6,17 +6,18 @@ const BlockError = ({
   status,
   message,
 }: {
-  status: number;
+  status: number | string;
   message: string;
 }) => {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center gap-2">
       <p className="text-6xl">{status}</p>
-      <p>Error: {message}</p>
+      <div className="text-white/60 text-center">
+        <p>Error: {message}</p>
+        <p>Please confirm the URL is correct and try again.</p>
+      </div>
       <Link href="/">
-        <Button variant="link" className="!px-0">
-          Go back
-        </Button>
+        <Button variant="outline">Go back</Button>
       </Link>
     </div>
   );
