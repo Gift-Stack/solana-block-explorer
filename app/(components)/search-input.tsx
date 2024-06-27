@@ -12,7 +12,7 @@ const SearchInput = () => {
     replace(`/?q=${e.target.value}`);
   };
 
-  const handleDebouncedChange = debounce(handleChange, 150);
+  const handleDebouncedChange = debounce(handleChange, 15);
 
   return (
     <Input
