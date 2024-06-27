@@ -12,7 +12,9 @@ export default function Home() {
         description="Check list of blocks and detailed view."
       />
 
-      <SearchInput />
+      <Suspense fallback="...">
+        <SearchInput />
+      </Suspense>
 
       <Suspense fallback={<BlocksTableSkeleton />}>
         <BlocksTable />
