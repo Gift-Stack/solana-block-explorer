@@ -5,7 +5,7 @@ import SolanaIcon from "@/icons/solana";
 import BlockDetail from "./block-detail";
 import LeaderDetail from "./leader-detail";
 import { Block } from "@/models/block";
-import BlockError from "./block-error";
+import BlockError from "@/components/error";
 import { dateToRelativeTime, formatTimestamp } from "@/utils/primitives";
 
 const TransactionDetailView = async ({ hash }: { hash: string }) => {
