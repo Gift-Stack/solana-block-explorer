@@ -5,11 +5,15 @@ import React from "react";
 
 type ErrorProps = {
   error: Error & { digest?: string };
-  reset: () => void;
 };
 
-const Error = ({ error, reset }: ErrorProps) => {
-  return <BlockError status={"Aww : ("} message={error.message} />;
+const Error = ({ error }: ErrorProps) => {
+  return (
+    <BlockError
+      status={"Aww : ("}
+      message={error.digest ?? "An error occurred"}
+    />
+  );
 };
 
 export default Error;
