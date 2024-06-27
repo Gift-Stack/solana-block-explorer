@@ -1,5 +1,5 @@
 import React from "react";
-import TransactionDetail from "./detail";
+import TransactionDetail from "./transaction-detail-card";
 import Banner from "@/components/banner";
 import SolanaIcon from "@/icons/solana";
 import BlockDetail from "./block-detail";

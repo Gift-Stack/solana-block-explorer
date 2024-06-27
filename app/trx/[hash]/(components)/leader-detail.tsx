@@ -2,7 +2,7 @@
 import React from "react";
 import { Button } from "@/components/button";
 import CopyIcon from "@/icons/copy";
-import TransactionDetail from "./detail";
+import TransactionDetail from "./transaction-detail-card";
 import { applyEllipse } from "@/utils/primitives";
 import { copyToClipboard } from "@/utils/compound";
 

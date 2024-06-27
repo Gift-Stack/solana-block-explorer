@@ -1,6 +1,6 @@
 import Banner from "@/components/banner";
 import React from "react";
-import TransactionDetail from "./detail";
+import TransactionDetail from "./transaction-detail-card";
 
 const TransactionDetailSkeleton = () => {
   return (
