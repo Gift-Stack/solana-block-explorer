@@ -21,7 +21,7 @@ export default async function Transaction({ params }: TransactionProps) {
   }
 
   return (
-    <main className="flex flex-col gap-10">
+    <main className="grid grid-rows-[auto_1fr] gap-10">
       <Banner
         title={`Block #${data.slot}`}
         description="Check the block details."
