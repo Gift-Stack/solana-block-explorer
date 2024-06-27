@@ -24,24 +24,22 @@ test.describe("Landing Page", () => {
   });
 
   test("Displays correct number of available blocks", async ({ page }) => {
-    const body = page.locator("body");
-    await body.scrollIntoViewIfNeeded();
+    await page.waitForURL("/");
 
     const blockTableRows = page.getByTestId(/blocks-table-row-*/);
-    expect(blockTableRows).toHaveCount(blocks.length);
+    await expect(blockTableRows).toHaveCount(blocks.length);
   });
 
   test("Displays correct number of filtered blocks", async ({ page }) => {
     const block = blocks[0];
     await page.goto(`/?q=${block.blockHash}`);
 
-    const body = page.locator("body");
-    await body.scrollIntoViewIfNeeded();
+    await page.waitForURL(`/?q=${block.blockHash}`);
 
     const blockTableRows = page.getByTestId(
       `blocks-table-row-${block.blockHash}`
     );
-    expect(blockTableRows).toHaveCount(1);
+    await expect(blockTableRows).toHaveCount(1);
   });
 
   test("navigates to trx detail on row click", async ({ page }) => {
