@@ -3,15 +3,11 @@
 import BlockError from "@/components/error";
 import React from "react";
 
-type ErrorProps = {
-  error: Error & { digest?: string };
-};
-
-const Error = ({ error }: ErrorProps) => {
+const Error = () => {
   return (
     <BlockError
       status={"Aww : ("}
-      message={error.digest ?? "An error occurred"}
+      message={"Looks like we can't find this transaction"}
     />
   );
 };
