@@ -19,6 +19,7 @@ const BlocksTableRow = ({ block }: BlockTableRowProps) => {
     <tr
       onClick={() => push(`/trx/${blockHash}`)}
       className="cursor-pointer hover:text-white rounded-2xl group font-medium"
+      data-testid={`blocks-table-row-${blockHash}`}
     >
       <td className="block-table-row-data text-primary hover:underline rounded-tl-2xl rounded-bl-2xl">
         {applyEllipse(blockHash)}

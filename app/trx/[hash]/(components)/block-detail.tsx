@@ -10,7 +10,11 @@ const BlockDetail = ({ block }: { block: number }) => {
     <TransactionDetail title="Block">
       <div className="flex items-center justify-center gap-2">
         <p>#{block}</p>
-        <Button variant="icon" onClick={() => copyToClipboard(String(block))}>
+        <Button
+          data-testid="block-copy-icon"
+          variant="icon"
+          onClick={() => copyToClipboard(String(block))}
+        >
           <CopyIcon size="sm" />
         </Button>
       </div>

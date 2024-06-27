@@ -11,7 +11,11 @@ const LeaderDetail = ({ leader }: { leader: string }) => {
     <TransactionDetail title="Leader">
       <div className="flex items-center justify-center gap-2">
         <p className="text-primary">{applyEllipse(leader)}</p>
-        <Button onClick={() => copyToClipboard(leader)} variant="icon">
+        <Button
+          data-testid="leader-copy-icon"
+          onClick={() => copyToClipboard(leader)}
+          variant="icon"
+        >
           <CopyIcon size="sm" />
         </Button>
       </div>

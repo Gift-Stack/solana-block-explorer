@@ -21,7 +21,7 @@ const BlocksTableData = ({ data: blocks }: { data: Block[] }) => {
   }, [blocks, filter]);
 
   return (
-    <tbody>
+    <tbody data-testid="blocks-table">
       {filteredBlocks.map((block) => (
         <BlocksTableRow block={block} key={block.blockHash} />
       ))}

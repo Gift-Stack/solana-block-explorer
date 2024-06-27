@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 8800",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "playwright test --project=chromium",
+    "test:all-browsers": "playwright test",
+    "test:report": "playwright show-report"
   },
   "dependencies": {
     "next": "14.2.4",
@@ -15,9 +18,11 @@
     "react-toastify": "^10.0.5"
   },
   "devDependencies": {
+    "@playwright/test": "^1.45.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "dotenv": "^16.4.5",
     "eslint": "^8",
     "eslint-config-next": "14.2.4",
     "postcss": "^8",
