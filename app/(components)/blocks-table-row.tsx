@@ -18,18 +18,18 @@ const BlocksTableRow = ({ block }: BlockTableRowProps) => {
   return (
     <tr
       onClick={() => push(`/trx/${blockHash}`)}
-      className="cursor-pointer hover:text-white rounded-2xl group font-medium"
+      className="cursor-pointer hover:text-white rounded-2xl group"
       data-testid={`blocks-table-row-${blockHash}`}
     >
-      <td className="block-table-row-data text-primary hover:underline rounded-tl-2xl rounded-bl-2xl">
+      <td className="block-table-row-data text-primary hover:text-primary/80 rounded-tl-2xl rounded-bl-2xl">
         {applyEllipse(blockHash)}
       </td>
-      <td className="block-table-row-data text-primary hover:underline">
+      <td className="block-table-row-data text-primary hover:text-primary/80">
         #{slot}
       </td>
       <td className="block-table-row-data">{relativeTime}</td>
       <td className="block-table-row-data">{txCount}</td>
-      <td className="block-table-row-data text-primary hover:underline">
+      <td className="block-table-row-data text-primary hover:text-primary/80">
         {applyEllipse(leader)}
       </td>
       <td className="block-table-row-data flex items-center gap-2 rounded-tr-2xl rounded-br-2xl">
