@@ -1,7 +1,7 @@
 import React from "react";
-import BlocksTableRow from "./blocks-table-row";
 import { Block } from "@/models/block";
 import { tableHeaderItems } from "./blocks-table-model";
+import BlocksTableData from "./blocks-table-data";
 
 const BlocksTable = async () => {
   const req = await fetch(process.env.URL + "/api/blocks");
@@ -19,11 +19,7 @@ const BlocksTable = async () => {
             ))}
           </tr>
         </thead>
-        <tbody>
-          {data.map((block) => (
-            <BlocksTableRow block={block} key={block.blockHash} />
-          ))}
-        </tbody>
+        <BlocksTableData data={data} />
       </table>
     </div>
   );
