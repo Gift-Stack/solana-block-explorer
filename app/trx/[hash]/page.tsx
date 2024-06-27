@@ -1,11 +1,11 @@
 import React from "react";
-import TransactionDetail from "./_components/detail";
+import TransactionDetail from "./(components)/detail";
 import Banner from "@/components/banner";
 import SolanaIcon from "@/icons/solana";
-import BlockDetail from "./_components/block-detail";
-import LeaderDetail from "./_components/leader-detail";
+import BlockDetail from "./(components)/block-detail";
+import LeaderDetail from "./(components)/leader-detail";
 import { Block } from "@/models/block";
-import BlockError from "./_components/block-error";
+import BlockError from "./(components)/block-error";
 import { dateToRelativeTime, formatTimestamp } from "@/utils/primitives";
 
 type TransactionProps = {

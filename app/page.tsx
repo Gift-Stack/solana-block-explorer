@@ -1,8 +1,8 @@
 import { Suspense } from "react";
 import Banner from "@/components/banner";
-import BlocksTable from "./_home/components/blocks-table";
-import BlocksTableSkeleton from "./_home/components/blocks-table-skeleton";
-import SearchInput from "./_home/components/search-input";
+import BlocksTable from "./(components)/blocks-table";
+import BlocksTableSkeleton from "./(components)/blocks-table-skeleton";
+import SearchInput from "./(components)/search-input";
 
 export default function Home() {
   return (
