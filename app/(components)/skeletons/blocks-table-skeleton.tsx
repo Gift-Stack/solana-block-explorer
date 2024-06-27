@@ -1,5 +1,5 @@
 import React from "react";
-import { tableHeaderItems } from "./blocks-table-model";
+import { tableHeaderItems } from "../blocks-table-model";
 
 const BlocksTableSkeleton = () => {
   return (

@@ -1,8 +1,9 @@
 import { Suspense } from "react";
 import Banner from "@/components/banner";
 import BlocksTable from "./(components)/blocks-table";
-import BlocksTableSkeleton from "./(components)/blocks-table-skeleton";
 import SearchInput from "./(components)/search-input";
+import BlocksTableSkeleton from "./(components)/skeletons/blocks-table-skeleton";
+import SearchInputSkeleton from "./(components)/skeletons/search-input-skeleton";
 
 export default function Home() {
   return (
@@ -12,7 +13,7 @@ export default function Home() {
         description="Check list of blocks and detailed view."
       />
 
-      <Suspense fallback="...">
+      <Suspense fallback={<SearchInputSkeleton />}>
         <SearchInput />
       </Suspense>
 
